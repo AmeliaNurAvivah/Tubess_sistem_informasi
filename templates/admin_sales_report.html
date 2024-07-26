@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Penjualan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<header>
+    <h1>Kulinerku </h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/menu">Menu</a>
+        <a href="/admin_login">Profil</a>
+        </nav>
+    </header>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nama Pelanggan</th>
+            <th>Telepon</th>
+            <th>Alamat</th>
+            <th>Status</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.customer_name }}</td>
+            <td>{{ order.customer_phone }}</td>
+            <td>{{ order.customer_address }}</td>
+            <td>{{ order.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+        <a href="{{ url_for('admin_dashboard') }}">Kembali ke Dashboard</a>
+    </body>
+    </html>
+  

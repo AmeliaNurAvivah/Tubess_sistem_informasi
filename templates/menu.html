@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Kulinerku </h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/menu">Menu</a>
+            <a href="/order_status/1">Pesanan Saya</a>
+            <a href="/admin_login">Profil</a>
+            </nav>
+        </header>
+
+        <div class="container">
+                {% for item in menus %}
+                <div class="card">
+                    {{ item.name }} <p> Rp. {{ item.price }} 
+                        <form action="{{ url_for('add_to_cart', item_id=item.id) }}" method="POST" style="display:inline;">
+                            <button type="submit">Tambahkan ke Keranjang</button>
+                        </form>
+                </div>
+                {% endfor %}
+            </div>
+    <a href="/"><button>Kembali ke Home</button></a> 
+    <a href="/cart"><button>Lihat Keranjang</button></a>
+
+</body>
+</html>
+
+

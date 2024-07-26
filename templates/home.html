@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Pemesanan Makanan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Kulinerku </h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/menu">Menu</a>
+            <a href="/order_status/1">Pesanan Saya</a>
+            <a href="/admin_login">Profil</a>
+            </nav>
+        </header>
+        <div class="banner">
+            <h2>TEMPAT PEMESANAN MAKANAN TERCEPAT!</h2>
+        </div>
+            <a href="/menu"><button>Pesan Makan Sekarang</button></a> 
+            <a href="/admin_login"><button>Login Sebagai Admin</button></a> 
+           
+</body>
+</html>

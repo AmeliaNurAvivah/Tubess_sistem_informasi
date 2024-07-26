@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Pesanan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Kulinerku </h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/menu">Menu</a>
+            <a href="/order_status/1">Pesanan Saya</a>
+            <a href="/admin_login">Profil</a>
+            </nav>
+        </header>
+
+<body>
+    <h1>Status Pesanan</h1>
+    {% if order %}
+    <p>Order ID: {{ order.id }}</p>
+    <p>Status: {{ order.status }}</p>
+    <ul>
+        {% for item in order.items %}
+        <li>{{ item.name }} <p> Rp.{{ item.price | int }} </li>
+        {% endfor %}
+    </ul>
+    <p>Total: Rp.{{ order.total | int }} </p>
+    <p>Payment Method: {{ order.payment_method }}</p>
+    <p>Address: {{ order.address }}</p>
+    <p>Phone: {{ order.phone }}</p>
+    {% else %}
+    <p>Order tidak ditemukan</p>
+    {% endif %}
+
+    <a href="/"><button>Kembali ke home</button></a>
+</body>
+</html>
